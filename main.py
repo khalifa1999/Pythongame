@@ -46,3 +46,12 @@ while running:
             running = False
             pygame.quit()
             print("fermeture du jeu")
+        #Evenment si le joueur appuie sur une touche
+        elif event.type == event.KEYDOWN:
+            #detecter la touche qui a ete appuyee
+            if event.type == pygame.K_RIGHT:
+                #deplacement vers la droite
+
+            elif event.type == pygame.K_LEFT:
+                #deplacement vers la gauche
+
