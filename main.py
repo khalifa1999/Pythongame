@@ -1,14 +1,8 @@
 import pygame
 from game import Game
-from player import Player
+
 
 pygame.init()
-
-
-
-
-
-
 
 # generer le titre de la fenetre
 
@@ -18,8 +12,7 @@ screen = pygame.display.set_mode((1080, 700))
 # importer l'arriere plan du jeu
 background = pygame.image.load('assets/bg.jpg')
 
-# charger player
-player = Player()
+
 
 # charger notre jeu
 
@@ -46,12 +39,14 @@ while running:
             running = False
             pygame.quit()
             print("fermeture du jeu")
-        #Evenment si le joueur appuie sur une touche
-        elif event.type == event.KEYDOWN:
-            #detecter la touche qui a ete appuyee
-            if event.type == pygame.K_RIGHT:
-                #deplacement vers la droite
+        # Evenment si le joueur appuie sur une touche
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RIGHT:
+                # deplacement vers la droite
+                game.player.move_right()
+            elif event.key == pygame.K_LEFT:
+                # deplacement vers la gauche
+                game.player.move_left()
 
-            elif event.type == pygame.K_LEFT:
-                #deplacement vers la gauche
+
 
