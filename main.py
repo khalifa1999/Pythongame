@@ -28,6 +28,14 @@ while running:
 
     # appliquer l'image de notre joueur
     screen.blit(game.player.image, game.player.rect)
+    print(game.player.rect.x)
+    # mouvement de nos personnages
+    if game.pressed.get(pygame.K_RIGHT) and game.player.rect.x + game.player.rect.width < screen.get_width():
+        game.player.move_right()
+    elif game.pressed.get(pygame.K_LEFT) and game.player.rect.x > 0:
+        game.player.move_left()
+
+
 
     # mettre a jour l'ecran
     pygame.display.flip()
@@ -41,12 +49,8 @@ while running:
             print("fermeture du jeu")
         # Evenment si le joueur appuie sur une touche
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_RIGHT:
-                # deplacement vers la droite
-                game.player.move_right()
-            elif event.key == pygame.K_LEFT:
-                # deplacement vers la gauche
-                game.player.move_left()
-
+                game.pressed[event.key] = True
+        elif event.type == pygame.KEYUP:
+                game.pressed[event.key] = False
 
 
